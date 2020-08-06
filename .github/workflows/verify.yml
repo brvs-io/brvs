@@ -53,4 +53,5 @@ jobs:
       - name: Run linters
         run: |
           bin/rubocop --parallel
+          yarn exec stylelint app/javascript/packs/**/*.scss
           yarn prettier --check app/**/*.{js,scss}
