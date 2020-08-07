@@ -1,1 +1,8 @@
 en:
+  application:
+    nav:
+      login: "Log in"
+      register: "Register"
+
+  home:
+    index:

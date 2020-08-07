@@ -1,0 +1,10 @@
+<% content_for :form do %>
+  <%= form_for(:user, url: user_password_path) do |f| %>
+    <div class="field">
+      <%= f.label :password, t('.form.password'), class: 'label', required: true %>
+      <div class="control"><%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'input' %></div>
+    </div>
+    
+    <%= f.submit t('.form.submit'), class: 'button is-primary is-large is-fullwidth' %>
+  <% end %>
+<% end %>

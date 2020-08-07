@@ -1,0 +1,10 @@
+<% content_for :form do %>
+  <%= form_for(:user, url: user_confirmation_path) do |f| %>
+    <div class="field">
+      <%= f.label :email, t('.form.email'), class: 'label' %>
+      <div class="control"><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", class: 'input' %></div>
+    </div>
+    
+    <%= f.submit t('.form.submit'), class: 'button is-primary is-large is-fullwidth' %>
+  <% end %>
+<% end %>

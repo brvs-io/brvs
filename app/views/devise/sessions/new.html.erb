@@ -1,0 +1,24 @@
+<% content_for :form do %>
+  <%= form_for(:user, url: user_session_path) do |f| %>
+    <div class="field">
+      <%= f.label :email, t('.form.email'), class: 'label' %>
+      <div class="control"><%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", class: 'input' %></div>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, t('.form.password'), class: 'label', required: true %>
+      <div class="control"><%= f.password_field :password, autocomplete: "current-password", class: 'input' %></div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= f.label :remember_me, class: 'checkbox' do %>
+          <%= f.check_box :remember_me, class: 'checkbox' %>
+          <%= t '.form.remember_me' %>
+        <% end %>
+      </div>
+    </div>
+    
+    <%= f.submit t('.form.submit'), class: 'button is-primary is-large is-fullwidth' %>
+  <% end %>
+<% end %>

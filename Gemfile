@@ -15,6 +15,7 @@ gem 'tzinfo-data', '~> 1.2020.1'
 gem 'pg', '~> 1.2'
 
 # Frontend
+gem 'flutie', '~> 2.2'
 gem 'sass-rails', '~> 6.0'
 gem 'turbolinks', '~> 5.2'
 gem 'webpacker', '~> 5.1'
@@ -33,6 +34,7 @@ gem 'stackprof', '~> 0.2'
 gem 'pry-rails', '~> 0.3'
 
 # Security
+gem 'devise', '~> 4.7'
 gem 'rack-attack', '~> 6.3'
 
 group :development, :test do
