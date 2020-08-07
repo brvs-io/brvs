@@ -22,10 +22,20 @@ gem 'webpacker', '~> 5.1'
 # Background jobs
 gem 'delayed_job_active_record', '~> 4.1'
 
+# Profiling
+gem 'flamegraph', '~> 0.9'
+gem 'memory_profiler', '~> 0.9'
+gem 'rack-mini-profiler', '~> 2.0'
+gem 'rbtrace', '~> 0.4'
+gem 'stackprof', '~> 0.2'
+
+# Utilities
+gem 'pry-rails', '~> 0.3'
+
 group :development, :test do
-  gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.13'
+  gem 'pry-byebug', '~> 3.9'
   gem 'rspec-rails', '~> 4.0'
 end
 
