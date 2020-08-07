@@ -2,5 +2,5 @@
 
 require 'rails_helper'
 
-# RSpec.describe 'AccountsController', type: :request do
+# RSpec.describe DashboardHelper, type: :helper do
 # end

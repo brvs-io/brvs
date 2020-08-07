@@ -6,6 +6,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def resource
+    raise NotImplementedError, 'Must implement in subclass'
+  end
+  helper_method :resource
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || dashboard_root_path
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end

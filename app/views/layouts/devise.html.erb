@@ -1,27 +1,7 @@
 <% content_for :main do %>
   <main class="hero is-light is-fullheight">
     <header class="hero-head">
-      <nav class="navbar has-background-dark">
-        <div class="container">
-          <div class="navbar-brand">
-            <h1 class="navbar-item is-size-3 has-text-white">brvs</h1>
-          </div>
-          <div class="navbar-menu">
-            <div class="navbar-end">
-              <% if !ENV['REGISTRATION_DISABLED'] && controller_name != 'registrations' %>
-                <span class="navbar-item">
-                  <%= link_to t(:register, scope: 'application.nav'), new_user_registration_path, class: 'button' %>
-                </span>
-              <% end %>
-              <% if controller_name != 'sessions' %>
-                <span class="navbar-item">
-                  <%= link_to t(:login, scope: 'application.nav'), new_user_session_path, class: 'button' %>
-                </span>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <%= render 'navbar' %>
     </header>
     <section class="hero-body">
       <div class="container">
@@ -32,7 +12,7 @@
           <div class="column is-three-fifths">
             <div class="card">
               <div class="card-content">
-                <%= render 'devise/form_errors' %>
+                <%= render 'form_errors' %>
                 <%= yield :form %>
               </div>
               <% if controller_name == 'registrations' || controller_name == 'sessions' %>

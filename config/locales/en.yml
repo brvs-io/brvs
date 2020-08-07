@@ -1,8 +1,55 @@
 en:
   application:
     nav:
+      dashboard: "Dashboard"
       login: "Log in"
+      logout: "Log out"
       register: "Register"
+    notifications:
+      created: "%{resource} was created successfully."
+      destroyed: "%{resource} was destroyed successfully."
+      errors:
+        one: "An error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      updated: "%{resource} was updated successfully."
 
-  home:
-    index:
+  dashboard:
+    accounts:
+      nav:
+        profile: "Profile"
+        security: "Security"
+        notifications: "Notifications"
+        applications: "Applications"
+      notifications:
+        profile:
+          updated: "Successfully updated your profile."
+          errors:
+            one: "There was an error while attempting to update your profile:"
+            other: "There were %{count} errors while attempting to update your profile:"
+      show:
+        profile:
+          title: "Profile"
+          form:
+            name: "Name"
+            email: "Email"
+            submit: "Update profile"
+    account_applications:
+      index:
+        applications:
+          title: "Applications"
+    account_notifications:
+      show:
+        notifications:
+          title: "Notifications"
+    account_security:
+      show:
+        password:
+          title: "Change password"
+          form:
+            current_password: "Current password"
+            password: "New password"
+            password_confirmation: "New password confirmation"
+            submit: "Update password"
+            reset: "Reset password"
+        2fa:
+          title: "Two-factor authentication"

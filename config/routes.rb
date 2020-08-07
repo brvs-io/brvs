@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   scope format: false do
-    devise_for :users, only: :sessions, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
+    devise_for :users, only: :sessions, path: '.dashboard', path_names: { sign_in: 'login', sign_out: 'logout' }
     devise_scope :user do
       unless ENV['REGISTRATION_DISABLED']
         get '/register', to: 'devise/registrations#new', as: :new_user_registration, format: false
@@ -10,16 +10,25 @@ Rails.application.routes.draw do
       end
 
       resource :confirmation, only: %i[new create show], path_names: { new: 'resend' },
-                              path: '/user/verify-email', controller: 'devise/confirmations', as: :user_confirmation
+                              path: '/dashboard/user/verify-email', controller: 'devise/confirmations',
+                              as: :user_confirmation
 
       resource :password, only: %I[new create edit update], path_names: { new: 'recover', edit: 'reset' },
-                          path: '/user/password', controller: 'devise/passwords', as: :user_password
+                          path: '/dashboard/user/password', controller: 'devise/passwords', as: :user_password
 
       resource :unlock, only: %i[new create show], path_names: { new: 'resend' },
-                        path: '/user/unlock', controller: 'devise/unlocks', as: :user_unlock
+                        path: '/dashboard/user/unlock', controller: 'devise/unlocks', as: :user_unlock
     end
 
-    resource :user, controller: :accounts, only: %i[show update destroy]
+    namespace :dashboard, path: '/dashboard' do
+      resource :account, path: 'user', controller: :accounts, only: %i[show update destroy]
+
+      resources :account_applications, path: 'user/applications'
+      resource :account_notifications, path: 'user/notifications', only: %i[show update]
+      resource :account_security, path: 'user/security', controller: :account_security, only: %i[show update]
+
+      root to: 'home#index'
+    end
   end
 
   root to: 'home#index'

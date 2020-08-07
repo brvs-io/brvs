@@ -1,0 +1,43 @@
+<div class="columns is-centered">
+  <%= render 'account_nav' %>
+  <div class="column is-two-fifths">
+    <section>
+      <h2 class="is-size-4"><%= t '.password.title' %></h2>
+      <hr>
+
+      <%= form_for(current_user, url: dashboard_account_security_path) do |f| %>
+        <div class="field">
+          <%= f.label :current_password, t('.password.form.current_password'), class: 'label' %>
+          <div class="control"><%= f.password_field :name, required: true, autofocus: true, autocomplete: "current-password", class: 'input' %></div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, t('.password.form.password'), class: 'label' %>
+          <div class="control"><%= f.password_field :password, required: true, autocomplete: "new-password", class: 'input' %></div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, t('.password.form.password_confirmation'), class: 'label' %>
+          <div class="control"><%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: 'input' %></div>
+        </div>
+        
+        <div class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <%= f.submit t('.password.form.submit'), class: 'button is-primary' %>
+            </div>
+            <div class="level-item">
+              <%= link_to t('.password.form.reset'), new_user_password_path %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </section>
+    <section class="mt-6">
+      <h2 class="is-size-4"><%= t '.2fa.title' %></h2>
+      <hr>
+
+      <p>Coming soon!</p>
+    </section>
+  </div>
+</div>
