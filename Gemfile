@@ -30,7 +30,8 @@ group :development, :test do
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'brakeman', '~> 4.9', require: false
+  gem 'bundler-audit', '~> 0.7', require: false
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.88', require: false
   gem 'rubocop-faker', '~> 1.1', require: false
