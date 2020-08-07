@@ -124,6 +124,7 @@ jobs:
 
       - name: Run tests
         env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
           DEVISE_PEPPER: ${{ secrets.TEST_DEVISE_PEPPER }}
           RAILS_ENV: test
         run: |
