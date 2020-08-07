@@ -20,9 +20,6 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # Assets configuration
-  config.assets.compile = false
-
   # ActionController configuration
   config.action_controller.perform_caching = true
 

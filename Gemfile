@@ -6,9 +6,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 # Rails
+gem 'actionmailer', '~> 6.0'
+gem 'actionpack', '~> 6.0'
+gem 'actionview', '~> 6.0'
+gem 'activejob', '~> 6.0'
+gem 'activemodel', '~> 6.0'
+gem 'activerecord', '~> 6.0'
+gem 'activesupport', '~> 6.0'
 gem 'bootsnap', '~> 1.4', require: false
 gem 'puma', '~> 4.1'
-gem 'rails', '~> 6.0.3'
+gem 'railties', '~> 6.0.3'
 gem 'tzinfo-data', '~> 1.2020.1'
 
 # Databases
@@ -16,7 +23,6 @@ gem 'pg', '~> 1.2'
 
 # Frontend
 gem 'flutie', '~> 2.2'
-gem 'sass-rails', '~> 6.0'
 gem 'turbolinks', '~> 5.2'
 gem 'webpacker', '~> 5.1'
 
