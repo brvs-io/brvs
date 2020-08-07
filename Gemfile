@@ -32,6 +32,9 @@ gem 'stackprof', '~> 0.2'
 # Utilities
 gem 'pry-rails', '~> 0.3'
 
+# Security
+gem 'rack-attack', '~> 6.3'
+
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.13'

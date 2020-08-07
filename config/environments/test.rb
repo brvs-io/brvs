@@ -30,4 +30,7 @@ Rails.application.configure do
 
   # ActiveSupport configuration
   config.active_support.deprecation = :stderr
+
+  # rack-attack configuration
+  Rack::Attack.enabled = false
 end
