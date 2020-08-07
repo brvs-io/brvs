@@ -43,6 +43,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate', '~> 3.1', require: false
   gem 'brakeman', '~> 4.9', require: false
   gem 'bundler-audit', '~> 0.7', require: false
   gem 'listen', '~> 3.2'
