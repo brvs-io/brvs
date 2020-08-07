@@ -51,6 +51,8 @@ jobs:
           yarn install --pure-lockfile
 
       - name: Run linters
+        env:
+          DEVISE_PEPPER: ${{ secrets.TEST_DEVISE_PEPPER }}
         run: |
           bin/rubocop --parallel
           yarn exec stylelint app/javascript/packs/**/*.scss
@@ -122,6 +124,7 @@ jobs:
 
       - name: Run tests
         env:
+          DEVISE_PEPPER: ${{ secrets.TEST_DEVISE_PEPPER }}
           RAILS_ENV: test
         run: |
           bin/rails db:setup
