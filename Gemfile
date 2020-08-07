@@ -19,6 +19,9 @@ gem 'sass-rails', '~> 6.0'
 gem 'turbolinks', '~> 5.2'
 gem 'webpacker', '~> 5.1'
 
+# Background jobs
+gem 'delayed_job_active_record', '~> 4.1'
+
 group :development, :test do
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.1'
