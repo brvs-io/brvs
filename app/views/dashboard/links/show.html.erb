@@ -1,0 +1,55 @@
+<main id="main" aria-role="main">
+  <section class="section">
+    <div class="container pb-6">
+      <%= render 'notifications' %>
+      <div class="columns is-centered">
+        <div class="column is-three-fifths">
+          <div class="card">
+            <header class="card-header">
+              <h1 class="card-header-title"><%= link_url(@link.name) %></h1>
+              <div class="card-header-icon">
+                <span class="icon">
+                  <%= link_to link_url(@link.name), class: 'has-text-dark' do %><i class="fas fa-external-link-alt"></i><% end %>
+                </span>
+                <span class="icon ml-3">
+                  <%= link_to edit_dashboard_link_path(@link), class: 'has-text-dark' do %><i class="fas fa-edit"></i><% end %>
+                </span>
+                <span class="icon ml-3">
+                  <%= link_to dashboard_link_url(@link), method: :delete, data: { confirm: 'Are you sure?' }, class: 'has-text-dark' do %><i class="fas fa-trash"></i><% end %>
+                </span>
+              </div>
+            </header>
+            <div class="card-content">
+              <p>
+                <i class="fas fa-link has-text-dark"></i>
+                &nbsp;
+                <%= link_to @link.target, URI.parse(@link.target).to_s, target: '_blank', class: 'has-text-dark' %>
+              </p>
+
+              <div class="level mt-3">
+                <div class="level-left">
+                  <div class="level-item">
+                    <small>
+                      <i class="fas fa-calendar"></i>
+                      &nbsp;
+                      <%= local_time @link.created_at %>
+                    </small>
+                  </div>
+                </div>
+                <div class="level-right">
+                  <div class="level-item">
+                    <% if @link.tags.any? %>
+                      <div class="tags">
+                        <% @link.tags.each do |t| %><span class="tag"><%= t %></span><% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

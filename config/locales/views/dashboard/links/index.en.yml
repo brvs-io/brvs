@@ -1,0 +1,11 @@
+en:
+  dashboard:
+    links:
+      index:
+        title: Links
+        new: New link
+        table:
+          headers:
+            name: Link
+            tags: Tags
+            created_at: Created

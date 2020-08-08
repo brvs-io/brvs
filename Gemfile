@@ -43,6 +43,18 @@ gem 'pry-rails', '~> 0.3'
 gem 'devise', '~> 4.7'
 gem 'rack-attack', '~> 6.3'
 
+# Validations
+gem 'validate_url', '~> 1.0'
+
+# Short ID generation
+gem 'hashids', '~> 1.0'
+
+# Pagination
+gem 'kaminari', '~> 1.2'
+
+# Presentation
+gem 'local_time', '~> 2.1'
+
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.13'

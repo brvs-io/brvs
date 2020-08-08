@@ -1,0 +1,8 @@
+en:
+  devise:
+    unlocks:
+      new:
+        form:
+          title: "Unlock Account"
+          email: "Email"
+          submit: "Send unlock email"

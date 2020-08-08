@@ -1,0 +1,15 @@
+en:
+  notifications:
+    application:
+      created: "%{resource} was created successfully."
+      destroyed: "%{resource} was destroyed successfully."
+      errors:
+        one: "An error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      updated: "%{resource} was updated successfully."
+      
+    profile:
+      updated: "Successfully updated your profile."
+      errors:
+        one: "There was an error while attempting to update your profile:"
+        other: "There were %{count} errors while attempting to update your profile:"

@@ -18,7 +18,11 @@ module Dashboard
     end
 
     def resource_notification_updated_key
-      'dashboard.accounts.notifications.profile.updated'
+      'notifications.profile.updated'
+    end
+
+    def resource_errors_key
+      'notifications.profile.errors'
     end
 
     def profile_params

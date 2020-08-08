@@ -1,0 +1,6 @@
+en:
+  dashboard:
+    home:
+      index:
+        target_placeholder: "Target URL"
+        create_link: "Create link"

@@ -1,0 +1,10 @@
+en:
+  dashboard:
+    accounts:
+      show:
+        profile:
+          title: "Profile"
+          form:
+            name: "Name"
+            email: "Email"
+            submit: "Update profile"

@@ -1,0 +1,10 @@
+en:
+  application:
+    navbar:
+      dashboard: "Dashboard"
+      links: "Links"
+      login: "Log in"
+      logout: "Log out"
+      register: "Register"
+      target_placeholder: "Target URL"
+      create_link: "Create link"

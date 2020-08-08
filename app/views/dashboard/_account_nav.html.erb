@@ -1,11 +1,11 @@
 <div class="column is-one-fifth">
   <nav class="panel">
-    <%= link_to t('profile', scope: 'dashboard.accounts.nav'), dashboard_account_path, class: "panel-block #{'is-active' if controller_name == 'accounts'}" %>
+    <%= link_to t('.links.profile'), dashboard_account_path, class: "panel-block #{'is-active' if controller_name == 'accounts'}" %>
 
-    <%= link_to t('security', scope: 'dashboard.accounts.nav'), dashboard_account_security_path, class: "panel-block #{'is-active' if controller_name == 'account_security'}" %>
+    <%= link_to t('.links.security'), dashboard_account_security_path, class: "panel-block #{'is-active' if controller_name == 'account_security'}" %>
 
-    <%= link_to t('notifications', scope: 'dashboard.accounts.nav'), dashboard_account_notifications_path, class: 'panel-block' %>
+    <%= link_to t('.links.notifications'), dashboard_account_notifications_path, class: 'panel-block' %>
 
-    <%= link_to t('applications', scope: 'dashboard.accounts.nav'), dashboard_account_applications_path, class: 'panel-block' %>
+    <%= link_to t('.links.applications'), dashboard_account_applications_path, class: 'panel-block' %>
   </nav>
 </div>

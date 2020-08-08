@@ -1,0 +1,10 @@
+en:
+  devise:
+    sessions:
+      new:
+        form:
+          title: "Log In"
+          email: "Email"
+          password: "Password"
+          submit: "Log in"
+          remember_me: "Remember me"

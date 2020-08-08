@@ -1,0 +1,6 @@
+en:
+  dashboard:
+    account_applications:
+      index:
+        applications:
+          title: "Applications"

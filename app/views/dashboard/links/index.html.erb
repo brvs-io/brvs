@@ -1,0 +1,46 @@
+<% if @links.any? %>
+<div class="level">
+  <div class="level-left">
+    <h1 class="title has-text-centered"><%= t '.title' %></h1>
+  </div>
+  <div class="level-right">
+    <%= link_to t('.new'), new_dashboard_link_path, class: 'button is-primary is-medium' %>
+  </div>
+</div>
+<%= render 'notifications' %>
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th><%= t '.table.headers.name' %></th>
+      <th><%= t '.table.headers.tags' %></th>
+      <th><%= t '.table.headers.created_at' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td>
+          <h3><%= link_to link_url(link.name), dashboard_link_path(link), class: 'has-text-dark is-size-4' %></h3>
+          <h4><%= link.target %></h4>
+        </td>
+        <td>
+          <% if link.tags.any? %>
+            <div class="tags">
+              <% link.tags.each do |t| %><span class="tag"><%= t %></span><% end %>
+            </div>
+          <% end %>
+        </td>
+        <td><%= local_time link.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <%= paginate @links %>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+<% else %>
+<% end %>

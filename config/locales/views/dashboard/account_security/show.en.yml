@@ -1,0 +1,14 @@
+en:
+  dashboard:
+    account_security:
+      show:
+        password:
+          title: "Change password"
+          form:
+            current_password: "Current password"
+            password: "New password"
+            password_confirmation: "New password confirmation"
+            submit: "Update password"
+            reset: "Reset password"
+        2fa:
+          title: "Two-factor authentication"

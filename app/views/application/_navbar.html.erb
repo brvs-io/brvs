@@ -4,26 +4,39 @@
       <h1 class="navbar-item is-size-3 has-text-white">brvs</h1>
     </div>
     <div class="navbar-menu">
+      <div class="navbar-start">
+        <span class="navbar-item">
+          <%= form_for Link.new, url: dashboard_links_path do |f| %>
+            <div class="field has-addons">
+              <div class="control"><%= f.text_field :target, class: 'input', placeholder: t('.target_placeholder') %></div>
+              <div class="control"><%= f.submit t('.create_link'), class: 'button is-primary' %></div>
+            </div>
+          <% end %>
+        </span>
+      </div>
       <div class="navbar-end">
         <% if user_signed_in? %>
           <span class="navbar-item">
-            <%= link_to t(:dashboard, scope: 'application.nav'), dashboard_root_path, class: 'has-text-white' %>
+            <%= link_to t('.dashboard'), dashboard_root_path, class: 'has-text-white' %>
+          </span>
+          <span class="navbar-item">
+            <%= link_to t('.links'), dashboard_links_path, class: 'has-text-white' %>
           </span>
           <span class="navbar-item">
             <%= link_to current_user.name, dashboard_account_path, class: 'has-text-white' %>
           </span>
           <span class="navbar-item">
-            <%= link_to t(:logout, scope: 'application.nav'), destroy_user_session_path, method: :delete, class: 'button' %>
+            <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'button is-light' %>
           </span>
         <% else %>
           <% if !ENV['REGISTRATION_DISABLED'] && controller_name != 'registrations' %>
             <span class="navbar-item">
-              <%= link_to t(:register, scope: 'application.nav'), new_user_registration_path, class: 'button' %>
+              <%= link_to t('.register'), new_user_registration_path, class: 'button' %>
             </span>
           <% end %>
           <% if controller_name != 'sessions' %>
             <span class="navbar-item">
-              <%= link_to t(:login, scope: 'application.nav'), new_user_session_path, class: 'button' %>
+              <%= link_to t('.login'), new_user_session_path, class: 'button' %>
             </span>
           <% end %>
         <% end %>

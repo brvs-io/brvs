@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Rails.application.routes.draw do
+Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   scope format: false do
     devise_for :users, only: :sessions, path: '.dashboard', path_names: { sign_in: 'login', sign_out: 'logout' }
     devise_scope :user do
@@ -27,9 +27,13 @@ Rails.application.routes.draw do
       resource :account_notifications, path: 'user/notifications', only: %i[show update]
       resource :account_security, path: 'user/security', controller: :account_security, only: %i[show update]
 
+      resources :links
+
       root to: 'home#index'
     end
   end
 
   root to: 'home#index'
+
+  resources :links, path: '', only: %i[create show update destroy]
 end

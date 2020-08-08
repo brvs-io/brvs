@@ -4,15 +4,15 @@
 module ResourceNotifications
   extend ActiveSupport::Concern
   def resource_notification_created_key
-    'application.notifications.created'
+    'notifications.application.created'
   end
 
   def resource_notification_destroyed_key
-    'application.notifications.destroyed'
+    'notifications.application.destroyed'
   end
 
   def resource_notification_updated_key
-    'application.notifications.updated'
+    'notifications.application.updated'
   end
 
   def resource_notification_created

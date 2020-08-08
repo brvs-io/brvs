@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :resource
 
+  def resource_errors_key
+    'notifications.application.errors'
+  end
+  helper_method :resource_errors_key
+
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || dashboard_root_path
   end

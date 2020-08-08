@@ -7,11 +7,6 @@ en:
       resend_confirmation: "Resend Confirmation"
       resend_unlock: "Unlock Account"
     confirmations:
-      new:
-        form:
-          title: "Resend Confirmation Email"
-          email: "Email"
-          submit: "Send confirmation email"
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -40,30 +35,12 @@ en:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
-      edit:
-        form:
-          title: "Reset Password"
-          email: "New password"
-          submit: "Change password"
-      new:
-        form:
-          title: "Recover Password"
-          email: "Email"
-          submit: "Send password recovery email"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
-      new:
-        form:
-          title: "Register"
-          name: "Name"
-          email: "Email"
-          password: "Password"
-          submit: "Register"
-          remember_me: "Remember me"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -73,22 +50,10 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
     sessions:
-      new:
-        form:
-          title: "Log In"
-          email: "Email"
-          password: "Password"
-          submit: "Log in"
-          remember_me: "Remember me"
       signed_in: "Logged in successfully."
       signed_out: "Logged out successfully."
       already_signed_out: "Logged out successfully."
     unlocks:
-      new:
-        form:
-          title: "Unlock Account"
-          email: "Email"
-          submit: "Send unlock email"
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."

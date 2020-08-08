@@ -50,5 +50,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :lockable,
          :confirmable, :recoverable, :rememberable, :validatable
 
+  has_many :links, foreign_key: :owner_id, inverse_of: :owner, dependent: :destroy
+
   validates :name, presence: true
 end

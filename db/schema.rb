@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_015615) do
+ActiveRecord::Schema.define(version: 2020_08_07_194523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -29,6 +29,26 @@ ActiveRecord::Schema.define(version: 2020_08_07_015615) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "owner_id", null: false
+    t.text "name", null: false
+    t.text "target", null: false
+    t.text "title"
+    t.text "tags", default: [], null: false, array: true
+    t.text "notes"
+    t.jsonb "properties", default: {}, null: false
+    t.integer "expires_in"
+    t.datetime "archived_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["archived_at"], name: "index_links_on_archived_at"
+    t.index ["name"], name: "index_links_on_name", unique: true
+    t.index ["owner_id"], name: "index_links_on_owner_id"
+    t.index ["properties"], name: "index_links_on_properties", using: :gin
+    t.index ["tags"], name: "index_links_on_tags", using: :gin
+    t.index ["target"], name: "index_links_on_target"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -60,4 +80,5 @@ ActiveRecord::Schema.define(version: 2020_08_07_015615) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "links", "users", column: "owner_id"
 end

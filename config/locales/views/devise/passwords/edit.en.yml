@@ -1,0 +1,8 @@
+en:
+  devise:
+    passwords:
+      edit:
+        form:
+          title: "Reset Password"
+          email: "New password"
+          submit: "Change password"

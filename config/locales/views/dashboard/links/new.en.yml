@@ -1,0 +1,6 @@
+en:
+  dashboard:
+    links:
+      new:
+        title: 'New Link'
+        submit: 'Create link'

@@ -34,21 +34,21 @@ RSpec.describe ResourceNotifications, type: :controller do
   describe '#resource_notification_created' do
     it 'sets the notice from the current locale' do
       post :create
-      expect(request.flash[:notice]).to eq(I18n.t('application.notifications.created', resource: 'User'))
+      expect(request.flash[:notice]).to eq(I18n.t('notifications.application.created', resource: 'User'))
     end
   end
 
   describe '#resource_notification_destroyed' do
     it 'sets the notice from the current locale' do
       delete :destroy
-      expect(request.flash[:notice]).to eq(I18n.t('application.notifications.destroyed', resource: 'User'))
+      expect(request.flash[:notice]).to eq(I18n.t('notifications.application.destroyed', resource: 'User'))
     end
   end
 
   describe '#resource_notification_updated' do
     it 'sets the notice from the current locale' do
       patch :update
-      expect(request.flash[:notice]).to eq(I18n.t('application.notifications.updated', resource: 'User'))
+      expect(request.flash[:notice]).to eq(I18n.t('notifications.application.updated', resource: 'User'))
     end
   end
 end

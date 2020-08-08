@@ -1,0 +1,19 @@
+<div class="field">
+  <%= f.label :name, t('.name.label', link: link_url('NAME')), class: 'label' %>
+  <div class="control"><%= f.text_field :name, class: 'input', placeholder: t('.name.placeholder') %></div>
+</div>
+
+<div class="field">
+  <%= f.label :target, t('.target.label'), class: 'label' %>
+  <div class="control"><%= f.text_field :target, class: 'input', placeholder: t('.target.placeholder') %></div>
+</div>
+
+<div class="field">
+  <%= f.label :expires_in, t('.expires_in.label'), class: 'label' %>
+  <div class="control"><%= f.text_field :expires_in, class: 'input', placeholder: t('.expires_in.placeholder') %></div>
+</div>
+
+<div class="field">
+  <%= f.label :tag_names, t('.tag_names.label'), class: 'label' %>
+  <div class="control"><%= f.text_field :tag_names, class: 'input', placeholder: t('.tag_names.placeholder') %></div>
+</div>

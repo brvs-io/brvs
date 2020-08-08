@@ -1,0 +1,16 @@
+en:
+  dashboard:
+    links:
+      link_fields:
+        name:
+          label: "Name (will be available at %{link})"
+          placeholder: "Leave blank to automatically generate"
+        target:
+          label: "Target URL"
+          placeholder: "e.g. https://example.com"
+        expires_in:
+          label: "Expires in (seconds)"
+          placeholder: "e.g. 3600 for one hour"
+        tag_names:
+          label: "Tags (comma-separated)"
+          placeholder: "e.g. foo, bar, baz"

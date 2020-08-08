@@ -1,0 +1,6 @@
+en:
+  dashboard:
+    links:
+      edit:
+        title: 'Edit Link'
+        submit: 'Update link'

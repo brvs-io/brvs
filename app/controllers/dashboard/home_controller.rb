@@ -3,5 +3,6 @@
 module Dashboard
   # Dashboard homepage controller.
   class HomeController < DashboardController
+    layout 'home'
   end
 end
