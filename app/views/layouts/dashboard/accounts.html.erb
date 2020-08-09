@@ -1,0 +1,24 @@
+<% content_for :main do %>
+  <main>
+    <header>
+      <%= render 'navbar' %>
+    </header>
+    <section>
+      <div class="container pt-6 pb-6">
+        <div class="columns is-centered">
+          <%= render 'account_nav' %>
+          <div class="column is-two-fifths">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <%= render 'footer' %>
+    </footer>
+  <main>
+<% end %>
+<% content_for :javascripts do %>
+  <%= javascript_pack_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<%= render template: 'layouts/application' %>

@@ -2,10 +2,12 @@
 
 module Dashboard
   # Account profile settings controller.
-  class AccountsController < DashboardController
+  class AccountProfilesController < DashboardController
+    layout 'dashboard/accounts'
+
     def update
       if current_user.update(profile_params)
-        redirect_to dashboard_account_path, notice: resource_notification_updated
+        redirect_to dashboard_account_profile_path, notice: resource_notification_updated
       else
         render :show, status: :unprocessable_entity
       end

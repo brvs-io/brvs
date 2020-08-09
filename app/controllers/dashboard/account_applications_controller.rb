@@ -3,5 +3,6 @@
 module Dashboard
   # Account OAuth application settings controller.
   class AccountApplicationsController < DashboardController
+    layout 'dashboard/accounts'
   end
 end

@@ -1,6 +1,6 @@
 en:
   dashboard:
-    accounts:
+    account_profiles:
       show:
         profile:
           title: "Profile"

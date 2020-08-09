@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Dashboard::AccountsController', type: :request do
+RSpec.describe 'Dashboard::AccountProfilesController', type: :request do
   let(:user) { FactoryBot.create(:user) }
 
   before { sign_in(user) }
@@ -20,7 +20,7 @@ RSpec.describe 'Dashboard::AccountsController', type: :request do
 
       it 'redirects to the account page' do
         update_account_request
-        expect(response).to redirect_to(dashboard_account_path)
+        expect(response).to redirect_to(dashboard_account_profile_path)
       end
 
       it 'updates the current user name' do

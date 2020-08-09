@@ -1,6 +1,6 @@
 <div class="column is-one-fifth">
   <nav class="panel">
-    <%= link_to t('.links.profile'), dashboard_account_path, class: "panel-block #{'is-active' if controller_name == 'accounts'}" %>
+    <%= link_to t('.links.profile'), dashboard_account_profile_path, class: "panel-block #{'is-active' if controller_name == 'accounts'}" %>
 
     <%= link_to t('.links.security'), dashboard_account_security_path, class: "panel-block #{'is-active' if controller_name == 'account_security'}" %>
 

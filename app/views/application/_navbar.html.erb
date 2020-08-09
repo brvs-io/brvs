@@ -25,7 +25,7 @@
             <%= link_to t('.links'), dashboard_links_path, class: 'has-text-white' %>
           </span>
           <span class="navbar-item">
-            <%= link_to current_user.name, dashboard_account_path, class: 'has-text-white' %>
+            <%= link_to current_user.name, dashboard_account_profile_path, class: 'has-text-white' %>
           </span>
           <span class="navbar-item">
             <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'button is-light' %>

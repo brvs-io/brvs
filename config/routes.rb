@@ -21,7 +21,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     end
 
     namespace :dashboard, path: '/dashboard' do
-      resource :account, path: 'user', controller: :accounts, only: %i[show update destroy]
+      resource :account_profile, path: 'user', only: %i[show update destroy]
 
       resources :account_applications, path: 'user/applications'
       resource :account_notifications, path: 'user/notifications', only: %i[show update]
