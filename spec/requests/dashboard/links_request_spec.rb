@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Dashboard::LinksController', type: :request do
+RSpec.describe 'Link management', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:link) { FactoryBot.create(:link, owner: user) }
   let(:other_link) { FactoryBot.create(:link) }
@@ -11,22 +11,22 @@ RSpec.describe 'Dashboard::LinksController', type: :request do
     sign_in(user)
   end
 
-  describe 'GET /dashboard/links' do
+  describe 'Listing links' do
     it 'returns HTTP success' do
-      get '/dashboard/links'
+      get dashboard_links_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET /dashboard/links/new' do
+  describe 'Building a new link' do
     it 'returns HTTP success' do
-      get '/dashboard/links/new'
+      get new_dashboard_link_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'POST /dashboard/links' do
-    before { post '/dashboard/links', params: params }
+  describe 'Creating a link' do
+    before { post dashboard_links_path, params: params }
 
     context 'with valid params' do
       let(:params) { { link: { target: Faker::Internet.url } } }
@@ -50,22 +50,22 @@ RSpec.describe 'Dashboard::LinksController', type: :request do
     end
   end
 
-  describe 'GET /dashboard/links/:id' do
+  describe 'Viewing a link' do
     it 'returns HTTP success' do
-      get "/dashboard/links/#{link.id}"
+      get dashboard_link_path(link)
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET /dashboard/links/:id/edit' do
+  describe 'Editing a link' do
     it 'returns HTTP success' do
-      get "/dashboard/links/#{link.id}/edit"
+      get edit_dashboard_link_path(link)
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'PATCH /dashboard/links/:id' do
-    before { patch "/dashboard/links/#{link.id}", params: params }
+  describe 'Updating a link' do
+    before { patch dashboard_link_path(link), params: params }
 
     context 'with valid params' do
       let(:new_target) { Faker::Internet.url }
@@ -94,8 +94,8 @@ RSpec.describe 'Dashboard::LinksController', type: :request do
     end
   end
 
-  describe 'DESTROY /dashboard/links/:id' do
-    before { delete "/dashboard/links/#{link.id}" }
+  describe 'Deleting a link' do
+    before { delete dashboard_link_path(link) }
 
     it 'destroys the link' do
       expect(Link.find_by(id: link)).to be_nil

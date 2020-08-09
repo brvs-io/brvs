@@ -7,9 +7,16 @@ RSpec.describe 'Dashboard::AccountProfilesController', type: :request do
 
   before { sign_in(user) }
 
-  describe 'PATCH /dashboard/user' do
+  describe 'Viewing account profile settings' do
+    it 'returns HTTP success' do
+      get dashboard_account_profile_path
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'Updating account profile settings' do
     subject(:update_account_request) do
-      patch '/dashboard/user', params: params
+      patch dashboard_account_profile_path, params: params
     end
 
     let(:params) { { user: { name: new_name, email: new_email } } }

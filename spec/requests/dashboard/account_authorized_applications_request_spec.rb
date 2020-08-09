@@ -16,20 +16,20 @@ RSpec.describe 'Authorized applications for a user', type: :request do
 
   describe 'Listing authorized applications' do
     it 'returns HTTP success' do
-      get '/dashboard/user/applications/authorized'
+      get dashboard_account_authorized_applications_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'Viewing a single authorized application' do
     it 'returns HTTP success' do
-      get "/dashboard/user/applications/authorized/#{first_application.id}"
+      get dashboard_account_authorized_application_path(first_application)
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'Revoking all access' do
-    before { delete '/dashboard/user/applications/authorized/revoke-all' }
+    before { delete revoke_all_dashboard_account_authorized_applications_path }
 
     it 'redirects to the authorized applications page' do
       expect(response).to redirect_to(dashboard_account_authorized_applications_path)
@@ -41,7 +41,7 @@ RSpec.describe 'Authorized applications for a user', type: :request do
   end
 
   describe 'Revoking access for a single application' do
-    before { delete "/dashboard/user/applications/authorized/#{first_application.id}" }
+    before { delete dashboard_account_authorized_application_path(first_application) }
 
     it 'redirects to the authorized applications page' do
       expect(response).to redirect_to(dashboard_account_authorized_applications_path)

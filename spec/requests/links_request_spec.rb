@@ -2,22 +2,20 @@
 
 require 'rails_helper'
 
-RSpec.describe 'LinksController', type: :request do
-  context 'with existing link' do
-    let(:link) { FactoryBot.create(:link) }
+RSpec.describe 'Link redirection', type: :request do
+  describe 'Retrieving a link' do
+    context 'with existing link' do
+      let(:link) { FactoryBot.create(:link) }
 
-    describe 'GET /:id' do
       it 'redirects to the target of the link' do
-        get "/#{link.name}"
+        get link_path(link.name)
         expect(response).to redirect_to(link.target)
       end
     end
-  end
 
-  context 'with nonexistent link' do
-    describe 'GET /:id' do
+    context 'with nonexistent link' do
       it 'returns HTTP not found' do
-        get '/nonexistent-link'
+        get link_path('/nonexistent-link')
         expect(response).to have_http_status(:not_found)
       end
     end
