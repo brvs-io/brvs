@@ -4,16 +4,18 @@
       <h1 class="navbar-item is-size-3 has-text-white">brvs</h1>
     </div>
     <div class="navbar-menu">
-      <div class="navbar-start">
-        <span class="navbar-item">
-          <%= form_for Link.new, url: dashboard_links_path do |f| %>
-            <div class="field has-addons">
-              <div class="control"><%= f.text_field :target, class: 'input', placeholder: t('.target_placeholder') %></div>
-              <div class="control"><%= f.submit t('.create_link'), class: 'button is-primary' %></div>
-            </div>
-          <% end %>
-        </span>
-      </div>
+      <% if user_signed_in? %>
+        <div class="navbar-start">
+          <span class="navbar-item">
+            <%= form_for Link.new, url: dashboard_links_path do |f| %>
+              <div class="field has-addons">
+                <div class="control"><%= f.text_field :target, class: 'input', placeholder: t('.target_placeholder') %></div>
+                <div class="control"><%= f.submit t('.create_link'), class: 'button is-primary' %></div>
+              </div>
+            <% end %>
+          </span>
+        </div>
+      <% end %>
       <div class="navbar-end">
         <% if user_signed_in? %>
           <span class="navbar-item">
