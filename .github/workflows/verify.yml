@@ -52,6 +52,7 @@ jobs:
 
       - name: Run linters
         env:
+          BRVS_DEFAULT_DOMAIN: brvs.test
           DEVISE_PEPPER: ${{ secrets.TEST_DEVISE_PEPPER }}
         run: |
           bin/rubocop --parallel
@@ -124,6 +125,7 @@ jobs:
 
       - name: Run tests
         env:
+          BRVS_DEFAULT_DOMAIN: brvs.test
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
           DEVISE_PEPPER: ${{ secrets.TEST_DEVISE_PEPPER }}
           RAILS_ENV: test
