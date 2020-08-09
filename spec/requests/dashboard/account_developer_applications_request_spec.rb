@@ -64,7 +64,7 @@ RSpec.describe 'Developer applications for a user', type: :request do
     subject(:update_request) { patch dashboard_account_developer_application_path(application), params: params }
 
     context 'with valid parameters' do
-      let(:new_name) { Faker::App.name }
+      let(:new_name) { Faker::App.unique.name }
       let(:params) { { doorkeeper_application: { name: new_name } } }
 
       it 'redirects to the developer application' do
