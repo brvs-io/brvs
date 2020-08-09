@@ -6,7 +6,7 @@
 &nbsp;
 [![Coveralls github branch](https://img.shields.io/coveralls/github/brvs-io/brvs/main?style=for-the-badge)](https://coveralls.io/github/brvs-io/brvs)
 
-**Brvs** (pronounced like the Latin word [_brevis_](https://en.wiktionary.org/wiki/brevis)) is a [URL shortener](https://en.wikipedia.org/wiki/URL_shortening) and branded link manager made for [self-hosting](https://en.wikipedia.org/wiki/Self-hosting_(web_services)).
+**Brvs** (pronounced like the Latin word [_brevis_](https://en.wiktionary.org/wiki/brevis)) is an open source [URL shortener](https://en.wikipedia.org/wiki/URL_shortening) and branded link manager made for [self-hosting](https://en.wikipedia.org/wiki/Self-hosting_(web_services)).
 
 **Brvs is still under heavy development and is not ready for production use quite yet.**
 
