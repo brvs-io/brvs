@@ -8,7 +8,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
                                                                  Coveralls::SimpleCov::Formatter
                                                                ])
 SimpleCov.start('rails')
-Rails.application.eager_load! # https://github.com/colszowka/simplecov#want-to-use-spring-with-simplecov
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

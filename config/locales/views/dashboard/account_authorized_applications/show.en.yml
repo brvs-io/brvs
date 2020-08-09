@@ -1,0 +1,9 @@
+en:
+  dashboard:
+    account_authorized_applications:
+      show:
+        authorized_application:
+          revoke: "Revoke"
+          scopes_description:
+            one: "This application has access to the following scope:"
+            other: "This application has access to the following %{count} scopes:"

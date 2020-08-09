@@ -1,0 +1,9 @@
+en:
+  dashboard:
+    account_developer_applications:
+      application_fields:
+        form:
+          name:
+            label: "Application name"
+          redirect_uri:
+            label: "Authorization callback URL"

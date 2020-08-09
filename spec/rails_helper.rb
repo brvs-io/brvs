@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+Rails.application.eager_load! if defined?(Rails) # https://github.com/colszowka/simplecov#want-to-use-spring-with-simplecov
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)

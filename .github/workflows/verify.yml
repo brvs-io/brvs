@@ -129,4 +129,4 @@ jobs:
           RAILS_ENV: test
         run: |
           bin/rails db:setup
-          bin/rspec
+          bundle exec rspec

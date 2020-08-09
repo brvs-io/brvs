@@ -1,0 +1,17 @@
+<%= render 'account_applications_tabs' %>
+<section>
+  <div class="level">
+    <div class="level-item">
+      <%= link_to t('.new_application'), new_dashboard_account_developer_application_path, class: 'button is-primary' %>
+    </div>
+  </div>
+  <% @applications.each do |application| %>
+    <section class="box">
+      <div class="level">
+        <div class="level-left">
+          <%= link_to application.name, dashboard_account_developer_application_path(application), class: 'title is-4' %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+</section>

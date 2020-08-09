@@ -1,0 +1,24 @@
+<% content_for :main do %>
+  <main class="hero is-light is-fullheight">
+    <header class="hero-head">
+      <%= render 'navbar' %>
+    </header>
+    <section class="hero-body">
+      <div class="container">
+        <h1 class="title has-text-centered"><%= t 'form.title', scope: [:devise, controller_name, action_name] %></h1>
+        <%= render 'notifications' %>
+        <div class="columns is-centered">
+          <div class="column is-three-fifths">
+            <div class="card">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="hero-foot">
+      <%= render 'footer' %>
+    </footer>
+  </main>
+<% end %>
+<%= render template: 'layouts/application' %>

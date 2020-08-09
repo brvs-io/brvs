@@ -1,0 +1,8 @@
+<div class="card-header">
+  <h1 class="card-header-title has-text-centered"><%= t('title', scope: 'doorkeeper.authorizations.error') %></h1>
+</div>
+<div class="card-content">
+  <div class="content">
+    <pre><%= @pre_auth.error_response.body[:error_description] %></pre>
+  </div>
+</div>

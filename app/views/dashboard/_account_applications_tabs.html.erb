@@ -1,0 +1,6 @@
+<div class="tabs">
+  <ul>
+    <li class="<%= 'is-active' if controller_name == 'account_authorized_applications' %>"><%= link_to t('.links.authorized_applications'), dashboard_account_authorized_applications_path %></li>
+    <li class="<%= 'is-active' if controller_name == 'account_developer_applications' %>"><%= link_to t('.links.developer_applications'), dashboard_account_developer_applications_path %></li>
+  </ul>
+</div>

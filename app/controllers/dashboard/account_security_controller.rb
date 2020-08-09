@@ -4,7 +4,7 @@ module Dashboard
   # Account security settings controller.
   class AccountSecurityController < DashboardController
     layout 'dashboard/accounts'
-    
+
     def update
       if resource.update_with_password(password_params)
         redirect_to dashboard_account_security_path, notice: resource_notification_updated

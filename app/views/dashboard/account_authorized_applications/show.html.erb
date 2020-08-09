@@ -1,0 +1,19 @@
+<section>
+  <div class="level">
+    <div class="level-left">
+      <%= link_to @application.name, dashboard_account_authorized_application_path(@application), class: 'title is-3' %>
+    </div>
+    <div class="level-right">
+      <%= link_to t('.authorized_application.revoke'), dashboard_account_authorized_application_path(@application), class: 'button is-danger', confirm: 'Are you sure?', method: :delete %>
+    </div>
+  </div>
+  <hr>
+  <div class="content">
+    <p><%= t '.authorized_application.scopes_description', count: @scopes.count %></p>
+    <ul>
+      <% @scopes.each do |scope| %>
+        <li><code><%= scope %></code></li>
+      <% end %>
+    </ul>
+  </div>
+</section>

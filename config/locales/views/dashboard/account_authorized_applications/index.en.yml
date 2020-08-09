@@ -1,0 +1,8 @@
+en:
+  dashboard:
+    account_authorized_applications:
+      index:
+        revoke_all: "Revoke all"
+        authorized_applications:
+          application:
+            revoke: "Revoke"

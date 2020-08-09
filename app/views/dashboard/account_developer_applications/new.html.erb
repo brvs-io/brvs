@@ -1,0 +1,9 @@
+<section>
+  <h2 class="title is-3"><%= t '.title' %></h2>
+  <hr>
+  <%= form_for @application, url: dashboard_account_developer_applications_path do |f| %>
+    <%= render partial: 'application_fields', locals: { f: f } %>
+
+    <%= f.submit t('.form.submit'), class: 'button is-primary' %>
+  <% end %>
+</section>

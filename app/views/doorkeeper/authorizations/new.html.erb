@@ -1,0 +1,47 @@
+<div class="card-header">
+  <h1 class="card-header-title has-text-centered"><%= t('title', scope: 'doorkeeper.authorizations.new') %></h1>
+</div>
+<div class="card-content">
+  <div class="content">
+    <p class="title is-5">
+      <%= t('prompt', scope: 'doorkeeper.authorizations.new', client_name: @pre_auth.client.name) %>
+    </p>
+
+    <% if @pre_auth.scopes.count > 0 %>
+      <p><%= t('able_to', scope: 'doorkeeper.authorizations.new') %>:</p>
+
+      <ul class="text-info">
+        <% @pre_auth.scopes.each do |scope| %>
+          <li><%= t scope, scope: [:doorkeeper, :scopes] %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <hr>
+  <div class="level">
+    <div class="level-item">
+      <%= form_tag oauth_authorization_path, method: :post do %>
+        <%= hidden_field_tag :client_id, @pre_auth.client.uid %>
+        <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
+        <%= hidden_field_tag :state, @pre_auth.state %>
+        <%= hidden_field_tag :response_type, @pre_auth.response_type %>
+        <%= hidden_field_tag :scope, @pre_auth.scope %>
+        <%= hidden_field_tag :code_challenge, @pre_auth.code_challenge %>
+        <%= hidden_field_tag :code_challenge_method, @pre_auth.code_challenge_method %>
+        <%= submit_tag t('doorkeeper.authorizations.buttons.authorize'), class: "button is-success is-large" %>
+      <% end %>
+    </div>
+    <div class="level-item">
+      <%= form_tag oauth_authorization_path, method: :delete do %>
+        <%= hidden_field_tag :client_id, @pre_auth.client.uid %>
+        <%= hidden_field_tag :redirect_uri, @pre_auth.redirect_uri %>
+        <%= hidden_field_tag :state, @pre_auth.state %>
+        <%= hidden_field_tag :response_type, @pre_auth.response_type %>
+        <%= hidden_field_tag :scope, @pre_auth.scope %>
+        <%= hidden_field_tag :code_challenge, @pre_auth.code_challenge %>
+        <%= hidden_field_tag :code_challenge_method, @pre_auth.code_challenge_method %>
+        <%= submit_tag t('doorkeeper.authorizations.buttons.deny'), class: "button is-danger is-large" %>
+      <% end %>
+    </div>
+  </div>
+</div>

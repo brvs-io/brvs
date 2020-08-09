@@ -52,5 +52,11 @@ class User < ApplicationRecord
 
   has_many :links, foreign_key: :owner_id, inverse_of: :owner, dependent: :destroy
 
+  has_many :access_tokens, as: :resource_owner, class_name: 'Doorkeeper::AccessToken',
+                           inverse_of: :resource_owner, dependent: :destroy
+
+  has_many :developer_applications, as: :owner, class_name: 'Doorkeeper::Application',
+                                    inverse_of: :owner, dependent: :destroy
+
   validates :name, presence: true
 end

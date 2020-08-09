@@ -41,6 +41,7 @@ gem 'pry-rails', '~> 0.3'
 
 # Security
 gem 'devise', '~> 4.7'
+gem 'doorkeeper', '~> 5.4'
 gem 'rack-attack', '~> 6.3'
 
 # Validations

@@ -1,0 +1,38 @@
+<section>
+  <div class="level">
+    <div class="level-left">
+      <%= link_to @application.name, dashboard_account_developer_application_path(@application), class: 'title is-3' %>
+    </div>
+    <div class="level-right">
+      <%= link_to t('.developer_application.delete'), dashboard_account_developer_application_path(@application), class: 'button is-danger', confirm: 'Are you sure?', method: :delete %>
+    </div>
+  </div>
+  <hr>
+</section>
+<section>
+  <div class="content">
+    <p class="subtitle"><strong><%= developer_application_active_users_count(@application) %></strong> <%= t('.developer_application.users', count: developer_application_active_users_count(@application)) %></p>
+    <p>
+      <%= t '.developer_application.client_id' %>
+      <br>
+      <code><%= @application.uid %></code>
+    </p>
+    <p>
+      <%= t '.developer_application.client_secret' %>
+      <br>
+      <code><%= @application.plaintext_secret %></code>
+    </p>
+    <div class="field is-grouped">
+      <p class="control"><%= link_to t('.developer_application.revoke_all_access_tokens'), revoke_dashboard_account_developer_application_path(@application), class: 'button is-danger is-outlined is-small', method: :delete %></p>
+      <p class="control"><%= link_to t('.developer_application.reset_client_secret'), secret_dashboard_account_developer_application_path(@application), class: 'button is-danger is-outlined is-small', method: :delete %></p>
+    </div>
+  </div>
+  <hr>
+</section>
+<section>
+  <%= form_for @application, url: dashboard_account_developer_application_path(@application) do |f| %>
+    <%= render partial: 'dashboard/account_developer_applications/application_fields', locals: { f: f } %>
+
+    <%= f.submit t('.developer_application.form.submit'), class: 'button is-primary' %>
+  <% end %>
+</section>

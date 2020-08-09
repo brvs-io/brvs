@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
-  scope format: false do
-    devise_for :users, only: :sessions, path: '.dashboard', path_names: { sign_in: 'login', sign_out: 'logout' }
+  scope format: false do # rubocop:disable Metrics/BlockLength
+    use_doorkeeper do
+      skip_controllers :applications, :authorized_applications
+    end
+
+    devise_for :users, only: :sessions, path: 'dashboard', path_names: { sign_in: 'login', sign_out: 'logout' }
     devise_scope :user do
       unless ENV['REGISTRATION_DISABLED']
         get '/register', to: 'devise/registrations#new', as: :new_user_registration, format: false
@@ -23,7 +27,13 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     namespace :dashboard, path: '/dashboard' do
       resource :account_profile, path: 'user', only: %i[show update destroy]
 
-      resources :account_applications, path: 'user/applications'
+      resources :account_authorized_applications, path: 'user/applications/authorized', only: %i[index show destroy] do
+        delete :revoke_all, path: 'revoke-all', on: :collection
+      end
+      resources :account_developer_applications, path: 'users/applications/developer' do
+        delete :revoke, on: :member
+        delete :secret, on: :member
+      end
       resource :account_notifications, path: 'user/notifications', only: %i[show update]
       resource :account_security, path: 'user/security', controller: :account_security, only: %i[show update]
 

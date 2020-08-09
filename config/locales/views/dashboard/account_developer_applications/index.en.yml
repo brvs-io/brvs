@@ -1,0 +1,5 @@
+en:
+  dashboard:
+    account_developer_applications:
+      index:
+        new_application: "New application"
