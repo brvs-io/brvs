@@ -6,6 +6,11 @@ Rails.application.configure do
   config.consider_all_requests_local = true
   config.eager_load = false
 
+  # Host authorization configuration
+  config.hosts << '.lvh.me'
+  config.hosts << '.ngrok.io'
+  config.hosts << '.test'
+
   # Caching configuration
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true

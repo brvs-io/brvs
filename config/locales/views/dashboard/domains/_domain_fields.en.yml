@@ -1,0 +1,7 @@
+en:
+  dashboard:
+    domains:
+      domain_fields:
+        name:
+          label: "Domain name"
+          placeholder: ""

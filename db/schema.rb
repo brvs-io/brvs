@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_005253) do
+ActiveRecord::Schema.define(version: 2020_08_09_184315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2020_08_09_005253) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "domains", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "owner_id", null: false
+    t.text "name", null: false
+    t.datetime "verified_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_domains_on_name", unique: true
+    t.index ["owner_id"], name: "index_domains_on_owner_id"
+    t.index ["verified_at"], name: "index_domains_on_verified_at"
+  end
+
   create_table "links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "owner_id", null: false
     t.text "name", null: false
@@ -43,8 +54,10 @@ ActiveRecord::Schema.define(version: 2020_08_09_005253) do
     t.datetime "archived_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "domain_id"
     t.index ["archived_at"], name: "index_links_on_archived_at"
-    t.index ["name"], name: "index_links_on_name", unique: true
+    t.index ["domain_id"], name: "index_links_on_domain_id"
+    t.index ["name", "domain_id"], name: "index_links_on_name_and_domain_id", unique: true
     t.index ["owner_id"], name: "index_links_on_owner_id"
     t.index ["properties"], name: "index_links_on_properties", using: :gin
     t.index ["tags"], name: "index_links_on_tags", using: :gin
@@ -129,6 +142,8 @@ ActiveRecord::Schema.define(version: 2020_08_09_005253) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "domains", "users", column: "owner_id"
+  add_foreign_key "links", "domains"
   add_foreign_key "links", "users", column: "owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"

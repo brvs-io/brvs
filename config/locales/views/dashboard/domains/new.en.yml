@@ -1,0 +1,6 @@
+en:
+  dashboard:
+    domains:
+      new:
+        title: 'New Domain'
+        submit: 'Create domain'

@@ -2,6 +2,7 @@ en:
   application:
     navbar:
       dashboard: "Dashboard"
+      domains: "Domains"
       links: "Links"
       login: "Log in"
       logout: "Log out"

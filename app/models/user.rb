@@ -50,6 +50,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :lockable,
          :confirmable, :recoverable, :rememberable, :validatable
 
+  has_many :domains, foreign_key: :owner_id, inverse_of: :owner, dependent: :destroy
+
   has_many :links, foreign_key: :owner_id, inverse_of: :owner, dependent: :destroy
 
   has_many :access_tokens, as: :resource_owner, class_name: 'Doorkeeper::AccessToken',

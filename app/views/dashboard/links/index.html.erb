@@ -20,7 +20,7 @@
     <% @links.each do |link| %>
       <tr>
         <td>
-          <h3><%= link_to link_url(link.name), dashboard_link_path(link), class: 'has-text-dark is-size-4' %></h3>
+          <h3><%= link_to link_url(link.name, domain: link.domain&.name), dashboard_link_path(link), class: 'has-text-dark is-size-4' %></h3>
           <h4><%= link.target %></h4>
         </td>
         <td>

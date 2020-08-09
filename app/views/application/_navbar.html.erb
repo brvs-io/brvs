@@ -25,6 +25,9 @@
             <%= link_to t('.links'), dashboard_links_path, class: 'has-text-white' %>
           </span>
           <span class="navbar-item">
+            <%= link_to t('.domains'), dashboard_domains_path, class: 'has-text-white' %>
+          </span>
+          <span class="navbar-item">
             <%= link_to current_user.name, dashboard_account_profile_path, class: 'has-text-white' %>
           </span>
           <span class="navbar-item">
@@ -33,12 +36,12 @@
         <% else %>
           <% if !ENV['REGISTRATION_DISABLED'] && controller_name != 'registrations' %>
             <span class="navbar-item">
-              <%= link_to t('.register'), new_user_registration_path, class: 'button' %>
+              <%= link_to t('.register'), new_user_registration_url(host: Rails.configuration.x.default_domain), class: 'button' %>
             </span>
           <% end %>
           <% if controller_name != 'sessions' %>
             <span class="navbar-item">
-              <%= link_to t('.login'), new_user_session_path, class: 'button' %>
+              <%= link_to t('.login'), new_user_session_url(host: Rails.configuration.x.default_domain), class: 'button' %>
             </span>
           <% end %>
         <% end %>

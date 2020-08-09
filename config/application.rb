@@ -27,5 +27,8 @@ module Brvs
     # I18n configuration
     config.i18n.available_locales = %i[en]
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
+
+    # Brvs configuration
+    config.x.default_domain = ENV.fetch('BRVS_DEFAULT_DOMAIN')
   end
 end

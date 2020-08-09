@@ -31,4 +31,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include Devise::Test::IntegrationHelpers, type: :request
+
+  config.before type: :request do
+    self.host = Rails.configuration.x.default_domain
+  end
 end

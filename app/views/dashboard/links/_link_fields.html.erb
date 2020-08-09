@@ -1,3 +1,14 @@
+<% unless @link.persisted? %>
+  <div class="field">
+    <%= f.label :domain_id, t('.domain_id.label'), class: 'label' %>
+    <div class="control">
+      <div class="select">
+        <%= f.select :domain_id, current_user.domains.order(:name).map { |d| [d.name, d.id] }, include_blank: Rails.configuration.x.default_domain %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="field">
   <%= f.label :name, t('.name.label', link: link_url('NAME')), class: 'label' %>
   <div class="control"><%= f.text_field :name, class: 'input', placeholder: t('.name.placeholder') %></div>

@@ -1,0 +1,6 @@
+en:
+  dashboard:
+    domains:
+      edit:
+        title: 'Edit Domain'
+        submit: 'Update domain'

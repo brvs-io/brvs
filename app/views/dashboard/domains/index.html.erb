@@ -1,0 +1,47 @@
+<% if @domains.any? %>
+<div class="level">
+  <div class="level-left">
+    <h1 class="title has-text-centered"><%= t '.title' %></h1>
+  </div>
+  <div class="level-right">
+    <%= link_to t('.new'), new_dashboard_domain_path, class: 'button is-primary is-medium' %>
+  </div>
+</div>
+<%= render 'notifications' %>
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th><%= t '.table.headers.name' %></th>
+      <th><%= t '.table.headers.links' %></th>
+      <th><%= t '.table.headers.created_at' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td>
+          <h3><%= link_to domain.name, dashboard_domain_path(domain), class: 'has-text-dark is-size-4' %></h3>
+        </td>
+        <td><%= domain.links.count %></td>
+        <td><%= local_time domain.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <%= paginate @domains %>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+<% else %>
+  <div class="columns is-centered">
+    <div class="column is-one-third">
+      <div class="box has-text-centered">
+        <p class="subtitle"><%= raw(t('.no_domains', domain: content_tag(:strong, Rails.configuration.x.default_domain))) %></p>
+        <p><%= link_to t('.new'), new_dashboard_domain_path, class: 'button is-primary is-large is-fullwidth'%></p>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -19,14 +19,18 @@
 # **`title`**        | `text`             |
 # **`created_at`**   | `datetime`         | `not null`
 # **`updated_at`**   | `datetime`         | `not null`
+# **`domain_id`**    | `uuid`             |
 # **`owner_id`**     | `uuid`             | `not null`
 #
 # ### Indexes
 #
 # * `index_links_on_archived_at`:
 #     * **`archived_at`**
-# * `index_links_on_name` (_unique_):
+# * `index_links_on_domain_id`:
+#     * **`domain_id`**
+# * `index_links_on_name_and_domain_id` (_unique_):
 #     * **`name`**
+#     * **`domain_id`**
 # * `index_links_on_owner_id`:
 #     * **`owner_id`**
 # * `index_links_on_properties` (_using_ gin):
@@ -38,6 +42,8 @@
 #
 # ### Foreign Keys
 #
+# * `fk_rails_...`:
+#     * **`domain_id => domains.id`**
 # * `fk_rails_...`:
 #     * **`owner_id => users.id`**
 #
@@ -62,5 +68,34 @@ RSpec.describe Link, type: :model do
   it 'returns tags as comma-separated tag names' do
     link = FactoryBot.create(:link, tags: %w[one two three])
     expect(link.tag_names).to eq('one, two, three')
+  end
+
+  describe 'validating domain belongs to owner' do
+    let(:user) { FactoryBot.create(:user) }
+    let(:link) { FactoryBot.build(:link, owner: user, domain: domain) }
+
+    before { link.validate }
+
+    context 'when domain owner and link owner are the same' do
+      let(:domain) { FactoryBot.create(:domain, owner: user) }
+
+      it 'is valid' do
+        expect(link).to be_valid
+      end
+    end
+
+    context 'when domain owner and link owner are not the same' do
+      before { link.validate }
+
+      let(:domain) { FactoryBot.create(:domain) }
+
+      it 'is not valid' do
+        expect(link).not_to be_valid
+      end
+
+      it 'has an error message' do
+        expect(link.errors.details[:domain]).to include({ error: :must_belong_to_owner })
+      end
+    end
   end
 end

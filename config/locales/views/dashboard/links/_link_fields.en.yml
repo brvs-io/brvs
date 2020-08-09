@@ -2,6 +2,8 @@ en:
   dashboard:
     links:
       link_fields:
+        domain_id:
+          label: "Domain"
         name:
           label: "Name (will be available at %{link})"
           placeholder: "Leave blank to automatically generate"

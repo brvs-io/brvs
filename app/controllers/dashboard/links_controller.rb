@@ -43,7 +43,7 @@ module Dashboard
     private
 
     def link_params
-      params.require(:link).permit(:name, :target, :expires_in, :tag_names, :notes)
+      params.require(:link).permit(:name, :target, :expires_in, :tag_names, :notes, :domain_id)
     end
 
     def find_link

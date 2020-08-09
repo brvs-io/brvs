@@ -19,14 +19,18 @@
 # **`title`**        | `text`             |
 # **`created_at`**   | `datetime`         | `not null`
 # **`updated_at`**   | `datetime`         | `not null`
+# **`domain_id`**    | `uuid`             |
 # **`owner_id`**     | `uuid`             | `not null`
 #
 # ### Indexes
 #
 # * `index_links_on_archived_at`:
 #     * **`archived_at`**
-# * `index_links_on_name` (_unique_):
+# * `index_links_on_domain_id`:
+#     * **`domain_id`**
+# * `index_links_on_name_and_domain_id` (_unique_):
 #     * **`name`**
+#     * **`domain_id`**
 # * `index_links_on_owner_id`:
 #     * **`owner_id`**
 # * `index_links_on_properties` (_using_ gin):
@@ -39,12 +43,19 @@
 # ### Foreign Keys
 #
 # * `fk_rails_...`:
+#     * **`domain_id => domains.id`**
+# * `fk_rails_...`:
 #     * **`owner_id => users.id`**
 #
 FactoryBot.define do
   factory :link do
     owner factory: :user
     target { Faker::Internet.url }
+
+    trait :with_domain do
+      domain
+      owner { domain.owner }
+    end
 
     trait :named do
       name { Faker::Company.bs.parameterize }
