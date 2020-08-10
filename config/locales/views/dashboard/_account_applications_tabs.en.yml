@@ -1,6 +1,7 @@
+---
 en:
   dashboard:
     account_applications_tabs:
       links:
-        authorized_applications: "Authorized Applications"
-        developer_applications: "Developer Applications"
+        authorized_applications: Authorized Applications
+        developer_applications: Developer Applications

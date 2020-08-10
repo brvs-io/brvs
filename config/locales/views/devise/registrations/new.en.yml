@@ -1,11 +1,12 @@
+---
 en:
   devise:
     registrations:
       new:
         form:
-          title: "Register"
-          name: "Name"
-          email: "Email"
-          password: "Password"
-          submit: "Register"
-          remember_me: "Remember me"
+          email: Email
+          name: Name
+          password: Password
+          remember_me: Remember me
+          submit: Register
+          title: Register

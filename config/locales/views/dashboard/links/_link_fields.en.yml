@@ -1,18 +1,19 @@
+---
 en:
   dashboard:
     links:
       link_fields:
         domain_id:
-          label: "Domain"
-        name:
-          label: "Name (will be available at %{link})"
-          placeholder: "Leave blank to automatically generate"
-        target:
-          label: "Target URL"
-          placeholder: "e.g. https://example.com"
+          label: Domain
         expires_in:
-          label: "Expires in (seconds)"
-          placeholder: "e.g. 3600 for one hour"
+          label: Expires in (seconds)
+          placeholder: e.g. 3600 for one hour
+        name:
+          label: Name (will be available at %{link})
+          placeholder: Leave blank to automatically generate
         tag_names:
-          label: "Tags (comma-separated)"
-          placeholder: "e.g. foo, bar, baz"
+          label: Tags (comma-separated)
+          placeholder: e.g. foo, bar, baz
+        target:
+          label: Target URL
+          placeholder: e.g. https://example.com

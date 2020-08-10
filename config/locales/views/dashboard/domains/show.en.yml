@@ -1,5 +1,6 @@
+---
 en:
   dashboard:
     domains:
       show:
-        links: "Links"
+        links: Links

@@ -1,13 +1,13 @@
+---
 en:
   dashboard:
     domains:
       index:
-        title: Domains
         new: New domain
+        no_domains: You have no custom domains yet. New links will automatically be created at %{domain}.
         table:
           headers:
-            name: Domain
-            links: Links
             created_at: Created
-        
-        no_domains: "You have no custom domains yet. New links will automatically be created at %{domain}."
+            links: Links
+            name: Domain
+        title: Domains

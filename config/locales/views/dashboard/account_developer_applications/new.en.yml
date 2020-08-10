@@ -1,7 +1,8 @@
+---
 en:
   dashboard:
     account_developer_applications:
       new:
-        title: "New Developer Application"
         form:
-          submit: "Create application"
+          submit: Create application
+        title: New Developer Application

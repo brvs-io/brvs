@@ -1,8 +1,9 @@
+---
 en:
   devise:
     confirmations:
       new:
         form:
-          title: "Resend Confirmation Email"
-          email: "Email"
-          submit: "Send confirmation email"
+          email: Email
+          submit: Send confirmation email
+          title: Resend Confirmation Email

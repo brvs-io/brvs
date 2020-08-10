@@ -1,10 +1,11 @@
+---
 en:
   kaminari:
     first_page:
-      first: "First"
-    next_page:
-      next: "Next"
+      first: First
     last_page:
-      last: "Last"
+      last: Last
+    next_page:
+      next: Next
     prev_page:
-      previous: "Previous"
+      previous: Previous

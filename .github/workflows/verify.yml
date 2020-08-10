@@ -56,6 +56,7 @@ jobs:
           DEVISE_PEPPER: ${{ secrets.TEST_DEVISE_PEPPER }}
         run: |
           bin/rubocop --parallel
+          bin/i18n-tasks health
           yarn exec stylelint app/frontend/**/*.scss
           yarn exec eslint
           yarn prettier --check app/**/*.{js,scss}

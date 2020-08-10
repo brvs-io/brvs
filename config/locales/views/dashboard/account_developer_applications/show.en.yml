@@ -1,15 +1,16 @@
+---
 en:
   dashboard:
     account_developer_applications:
       show:
         developer_application:
-          delete: "Delete"
-          users:
-            one: "user"
-            other: "users"
-          client_id: "Client ID"
-          client_secret: "Client Secret"
-          revoke_all_access_tokens: "Revoke all access tokens"
-          reset_client_secret: "Reset client secret"
+          client_id: Client ID
+          client_secret: Client Secret
+          delete: Delete
           form:
-            submit: 'Update application'
+            submit: Update application
+          reset_client_secret: Reset client secret
+          revoke_all_access_tokens: Revoke all access tokens
+          users:
+            one: user
+            other: users

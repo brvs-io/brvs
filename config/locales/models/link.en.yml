@@ -1,3 +1,4 @@
+---
 en:
   activerecord:
     errors:
@@ -5,4 +6,4 @@ en:
         link:
           attributes:
             domain:
-              must_belong_to_owner: "must belong to you"
+              must_belong_to_owner: must belong to you

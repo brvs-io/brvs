@@ -1,10 +1,11 @@
+---
 en:
   dashboard:
     account_profiles:
       show:
         profile:
-          title: "Profile"
           form:
-            name: "Name"
-            email: "Email"
-            submit: "Update profile"
+            email: Email
+            name: Name
+            submit: Update profile
+          title: Profile

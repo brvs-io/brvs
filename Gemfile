@@ -15,6 +15,7 @@ gem 'activerecord', '~> 6.0'
 gem 'activesupport', '~> 6.0'
 gem 'bootsnap', '~> 1.4', require: false
 gem 'puma', '~> 4.1'
+gem 'rails-i18n', '~> 6.0'
 gem 'railties', '~> 6.0.3'
 gem 'tzinfo-data', '~> 1.2020.1'
 
@@ -67,6 +68,7 @@ group :development do
   gem 'annotate', '~> 3.1', require: false
   gem 'brakeman', '~> 4.9', require: false
   gem 'bundler-audit', '~> 0.7', require: false
+  gem 'i18n-tasks', '~> 0.9', require: false
   gem 'listen', '~> 3.2'
   gem 'rubocop', '~> 0.88', require: false
   gem 'rubocop-faker', '~> 1.1', require: false

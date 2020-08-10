@@ -1,11 +1,12 @@
+---
 en:
   dashboard:
     links:
       index:
-        title: Links
         new: New link
         table:
           headers:
+            created_at: Created
             name: Link
             tags: Tags
-            created_at: Created
+        title: Links

@@ -1,11 +1,12 @@
+---
 en:
   application:
     navbar:
-      dashboard: "Dashboard"
-      domains: "Domains"
-      links: "Links"
-      login: "Log in"
-      logout: "Log out"
-      register: "Register"
-      target_placeholder: "Target URL"
-      create_link: "Create link"
+      create_link: Create link
+      dashboard: Dashboard
+      domains: Domains
+      links: Links
+      login: Log in
+      logout: Log out
+      register: Register
+      target_placeholder: Target URL

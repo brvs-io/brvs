@@ -1,6 +1,7 @@
+---
 en:
   dashboard:
     account_notifications:
       show:
         notifications:
-          title: "Notifications"
+          title: Notifications

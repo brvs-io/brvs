@@ -1,8 +1,9 @@
+---
 en:
   devise:
     passwords:
       new:
         form:
-          title: "Recover Password"
-          email: "Email"
-          submit: "Send password recovery email"
+          email: Email
+          submit: Send password recovery email
+          title: Recover Password

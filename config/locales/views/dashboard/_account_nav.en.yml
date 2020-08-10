@@ -1,8 +1,9 @@
+---
 en:
   dashboard:
     account_nav:
       links:
-        profile: "Profile"
-        security: "Security"
-        notifications: "Notifications"
-        applications: "Applications"
+        applications: Applications
+        notifications: Notifications
+        profile: Profile
+        security: Security
