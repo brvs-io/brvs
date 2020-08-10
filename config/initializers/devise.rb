@@ -15,7 +15,7 @@ Devise.setup do |config| # rubocop:disable Metrics/BlockLength
 
   # Database authentication configuration
   config.stretches = Rails.env.test? ? 1 : 12
-  config.pepper = ENV.fetch('DEVISE_PEPPER')
+  config.pepper = ENV['DEVISE_PEPPER'] if ENV['DEVISE_PEPPER'].present?
   config.send_email_changed_notification = true
   config.send_password_change_notification = true
 
