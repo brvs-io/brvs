@@ -9,6 +9,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -69,7 +70,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     services:
       postgres:
         image: postgres:12-alpine
