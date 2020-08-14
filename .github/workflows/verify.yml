@@ -55,6 +55,7 @@ jobs:
         env:
           BRVS_DEFAULT_DOMAIN: brvs.test
           DEVISE_PEPPER: ${{ secrets.TEST_DEVISE_PEPPER }}
+          WEBPACK_HOST: localhost
         run: |
           bin/rubocop --parallel
           bin/i18n-tasks health
