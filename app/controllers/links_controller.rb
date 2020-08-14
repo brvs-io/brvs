@@ -17,7 +17,7 @@ class LinksController < ApplicationController
 
   def find_link_on_domain
     domain = Domain.find_by(name: request.domain)
-    domain&.links.find_by(name: params[:id]) unless domain.blank?
+    domain&.links&.find_by(name: params[:id]) if domain.present?
   end
 
   def redirect_or_not_found(link)
