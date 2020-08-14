@@ -17,9 +17,7 @@ class LinksController < ApplicationController
 
   def find_link_on_domain
     domain = Domain.find_by(name: request.domain)
-    render_not_found if domain.blank?
-
-    domain.links.find_by(name: params[:id])
+    domain&.links.find_by(name: params[:id]) unless domain.blank?
   end
 
   def redirect_or_not_found(link)
@@ -35,6 +33,6 @@ class LinksController < ApplicationController
   end
 
   def default_domain?
-    request.domain == Rails.configuration.x.default_domain
+    request.host == Rails.configuration.x.default_domain
   end
 end

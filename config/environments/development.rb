@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Rails.application.configure do
+Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # General Rails configuration
   config.cache_classes = false
   config.consider_all_requests_local = true
@@ -10,6 +10,7 @@ Rails.application.configure do
   config.hosts << '.lvh.me'
   config.hosts << '.ngrok.io'
   config.hosts << '.test'
+  config.hosts << config.x.default_domain
 
   # Caching configuration
   if Rails.root.join('tmp/caching-dev.txt').exist?

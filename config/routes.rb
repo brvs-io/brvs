@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   scope format: false do # rubocop:disable Metrics/BlockLength
-    constraints domain: Rails.configuration.x.default_domain do # rubocop:disable Metrics/BlockLength
+    constraints host: Rails.configuration.x.default_domain do # rubocop:disable Metrics/BlockLength
       use_doorkeeper do
         skip_controllers :applications, :authorized_applications
       end
