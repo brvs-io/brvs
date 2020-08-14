@@ -52,9 +52,9 @@ development:
     https: false
     inline: true
     overlay: true
-    port: 3035
+    port: 3036
     pretty: false
-    public: localhost:3035
+    public: localhost:3036
     quiet: false
     use_local_ip: false
     headers:

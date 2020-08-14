@@ -9,7 +9,10 @@ Rails.application.config.content_security_policy do |policy|
   policy.script_src  :self, :https
   policy.style_src   :self, :https, :unsafe_inline
 
-  policy.connect_src :self, :https, 'http://localhost:3035', 'ws://localhost:3035' if Rails.env.development?
+  if Rails.env.development?
+    webpack_host = ENV.fetch('WEBPACK_HOST')
+    policy.connect_src :self, :https, "https://#{webpack_host}", "ws://#{webpack_host}"
+  end
 
   policy.report_uri '/csp-violation-report-endpoint' if ENV['CSP_VIOLATION_REPORT_ENDPOINT']
 end
