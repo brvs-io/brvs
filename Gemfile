@@ -84,4 +84,5 @@ end
 
 group :test do
   gem 'coveralls', '~> 0.8', require: false
+  gem 'rails-controller-testing', '~> 1.0'
 end

@@ -48,5 +48,5 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
 
   root to: 'home#index'
 
-  resources :links, path: '', only: %i[show]
+  resources :links, path: '', only: %i[show new create]
 end

@@ -4,9 +4,16 @@
 class LinksController < ApplicationController
   layout 'home'
 
+  before_action :authenticate_user!, only: %i[new create]
+
   def show
     @link = default_domain? ? find_link_on_default_domain : find_link_on_domain
     redirect_or_not_found(@link)
+  end
+
+  def new
+    @link = current_user.links.new(target: new_params[:target])
+    @link.save if params[:auto]
   end
 
   private
@@ -36,5 +43,9 @@ class LinksController < ApplicationController
 
   def default_domain?
     request.domain == Rails.configuration.x.default_domain
+  end
+
+  def new_params
+    params.permit(:target)
   end
 end

@@ -3,6 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Link redirection', type: :request do
+  describe 'Building a new link' do
+    it 'returns HTTP success' do
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe 'Retrieving a link' do
     context 'when on the default domain with an existing link' do
       let(:link) { FactoryBot.create(:link) }

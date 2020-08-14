@@ -1,0 +1,14 @@
+<% content_for :main do %>
+  <main class="hero is-light is-fullheight">
+    <header class="hero-head">
+    </header>
+    <section class="hero-body">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
+    <footer class="hero-foot">
+    </footer>
+  </main>
+<% end %>
+<%= render template: 'layouts/application' %>
