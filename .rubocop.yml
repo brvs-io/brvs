@@ -23,3 +23,11 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - db/migrate/*.rb
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - spec/requests/api/**/*_spec.rb
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/requests/api/**/*_spec.rb

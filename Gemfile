@@ -19,6 +19,10 @@ gem 'rails-i18n', '~> 6.0'
 gem 'railties', '~> 6.0.3'
 gem 'tzinfo-data', '~> 1.2020.1'
 
+# API
+gem 'rswag-api', '~> 2.3'
+gem 'rswag-ui', '~> 2.3'
+
 # Databases
 gem 'pg', '~> 1.2'
 
@@ -62,6 +66,7 @@ group :development, :test do
   gem 'faker', '~> 2.13'
   gem 'pry-byebug', '~> 3.9'
   gem 'rspec-rails', '~> 4.0'
+  gem 'rswag-specs', '~> 2.3'
 end
 
 group :development do

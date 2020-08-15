@@ -25,6 +25,14 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
                           path: '/dashboard/user/unlock', controller: 'devise/unlocks', as: :user_unlock
       end
 
+      namespace :api do
+        resource :user, only: %i[show]
+        resources :links, only: %i[index create show update destroy]
+        resources :domains, only: %i[index create show update destroy]
+
+        root to: 'root#index'
+      end
+
       namespace :dashboard, path: '/dashboard' do
         resource :account_profile, path: 'user', only: %i[show update destroy]
 
