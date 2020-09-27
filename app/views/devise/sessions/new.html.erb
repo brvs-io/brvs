@@ -21,4 +21,16 @@
     
     <%= f.submit t('.form.submit'), class: 'button is-primary is-large is-fullwidth' %>
   <% end %>
+  <hr>
+  <h2 class="subtitle has-text-centered">Or log in with IndieAuth</h2>
+  <%= form_tag user_indieauth_omniauth_authorize_url, method: :get do %>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <%= text_field_tag 'me', nil, placeholder: 'example.org', class: 'input is-large' %>
+      </div>
+      <div class="control">
+        <%= submit_tag 'Log in', class: 'button is-primary is-large' %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

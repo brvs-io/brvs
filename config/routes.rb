@@ -8,6 +8,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
       end
 
       devise_for :users, only: :sessions, path: 'dashboard', path_names: { sign_in: 'login', sign_out: 'logout' }
+      devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'dashboard/omniauth_callbacks' }
       devise_scope :user do
         unless ENV['REGISTRATION_DISABLED']
           get '/register', to: 'devise/registrations#new', as: :new_user_registration, format: false

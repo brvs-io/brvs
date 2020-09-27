@@ -30,5 +30,6 @@ module Brvs
 
     # Brvs configuration
     config.x.default_domain = ENV.fetch('BRVS_DEFAULT_DOMAIN', 'example.com')
+    config.x.default_url = "https://#{config.x.default_domain}"
   end
 end

@@ -46,6 +46,9 @@ Devise.setup do |config| # rubocop:disable Metrics/BlockLength
   # Navigation configuration
   config.sign_out_via = :delete
 
+  # OmniAuth configuration
+  config.omniauth :indieauth, client_id: Rails.configuration.x.default_url
+
   # Turbolinks configuration
   ActiveSupport.on_load(:devise_failure_app) do
     include Turbolinks::Controller

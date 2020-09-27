@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_184315) do
+ActiveRecord::Schema.define(version: 2020_08_12_000412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -135,9 +135,12 @@ ActiveRecord::Schema.define(version: 2020_08_09_184315) do
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "indieauth_profile_url"
+    t.datetime "indieauth_verified_at"
     t.index ["admin"], name: "index_users_on_admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["indieauth_profile_url"], name: "index_users_on_indieauth_profile_url", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
